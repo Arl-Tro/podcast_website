@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="it">
+
+{% from "bootstrap5/utils.html" import render_icon %}
+
+<head>
+    <meta charset="utf-8">
+    <title>PODCASPER</title>
+    <meta name="keywords" content="web, blog, html, css">
+
+    {{ bootstrap.load_css(version="5.2.3") }}
+
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='validation.js') }}" defer></script>
+
+    {% block head %}
+    {% endblock%}
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico')}}">
+
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_main1.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_mio_podcast.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_mio_profilo.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_serie.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_pagina_episodio.css') }}">
+</head>
+
+<body>
+
+
+    <header>
+
+
+        <h1><a href="/" class="titolo">PODCASPER</a></h1>
+
+
+
+        <nav>
+            {% if current_user.is_authenticated %}
+            <a class="accedi" href="{{url_for('route_creatore', id=current_user.id) }}" title="Accedi">{{
+                current_user.nome
+                }}</a>
+            <form action="{{ url_for('route_logout') }}" class="d-inline" method="POST">
+                <button class="btn btn-link accedi d-inline" type="submit">Esci</button>
+            </form>
+            {% else %}
+            <a class="accedi" href="{{ url_for('route_registrati') }}" title="Iscrizione">Iscriviti</a>
+            <a class="accedi" href="{{ url_for('route_accedi') }}" title="Accedi">Accedi</a>
+            {% endif %}
+        </nav>
+
+    </header>
+
+
+
+    <div class="contenitore">
+
+        <aside class="box1">
+
+
+            <nav class="menu">
+
+                <h1><a class="selezione" href="{{ url_for('route_home') }}" title="Homepage">Homepage</a></h1>
+                {% if current_user.is_authenticated and current_user.tipo == "Creatore" %}
+                <h1><a class="selezione" href="{{ url_for('route_mie_serie') }}" title="Il mio podcast">Il mio
+                        podcast</a></h1>
+                {% endif %}
+
+            </nav>
+
+
+            <div class="tutte_categorie">
+                <h2 class="categoria" title="Categorie">Categorie</h2>
+
+                <div class="categorie">
+                    {% for categoria in categorie %}
+                    <h1>
+                        <a class="selezione_categoria"
+                            href="{{ url_for('route_categoria', categoria=categoria.CATEGORIA) }}" title="categoria">{{
+                            categoria.CATEGORIA }}</a>
+                    </h1>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+
+
+        </aside>
+
+        <main class="box2">
+
+
+            {% block seguiti %}
+            {% if current_user.is_authenticated %}
+            <div class="categoria1">
+                <div class="categoria1_1">
+                    <h4 classe="seguiti">Seguiti</h4>
+                    <div class="btm_s">
+                        <button id="leftButton" class="btn btn-link">
+                            {{ render_icon("arrow-left-short") }}
+                        </button>
+                        <button id="rightButton" class="btn btn-link">
+                            {{ render_icon("arrow-right-short") }}
+                        </button>
+                    </div>
+                </div>
+
+                <div id="scroll" class="categoria1_2">
+                    {% for serie in seguiti %}
+                    <div class="icona_seguiti">
+                        <a href=""><img class="img_utente_seguiti" href=""
+                                src="{{ url_for('route_immagine_serie', id=serie.ID) }}"></a>
+                        <h4><span class="nome_seguiti">{{ serie.TITOLO }}</span></h4>
+                    </div>
+                    {% endfor%}
+
+                </div>
+            </div>
+            {% endif %}
+            {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+            <article class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{message}}
+                <button class="btn-close" data-bs-dismiss="alert"></button>
+            </article>
+            {% endfor %}
+            {% endwith %}
+            {% block contenuto %}
+            {% endblock %}
+        </main>
+
+    </div>
+    {{ bootstrap.load_js(version="5.2.3") }}
+</body>
+
+</html>

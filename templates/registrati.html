@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block contenuto %}
+<form action="{{url_for('route_sign_up')}}" method="POST" class="needs-validation" enctype="multipart/form-data"
+    novalidate>
+    <div class="mb-3">
+        <label for="nomeUtente" class="form-label">Nome Utente</label>
+        <input type="text" class="form-control" id="nomeUtente" name="nome" required minlength="1" maxlength="100">
+    </div>
+
+    <div class="mb-3">
+        <label for="mailUtente" class="form-label">Email</label>
+        <input type="email" class="form-control" id="mailUtente" name="mail" required minlength="1" maxlength="100">
+    </div>
+
+    <div class="mb-3">
+        <label for="passwordUtente" class="form-label">Password</label>
+        <input type="password" class="form-control" id="passwordUtente" name="password" required minlength="1"
+            maxlength="100">
+    </div>
+
+    <div class="mb-3">
+        <label for="immagineUtente" class="form-label">Immagine</label>
+        <input type="file" class="form-control" id="immagineUtente" name="immagine" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="tipoUtente" class="form-label">Tipo Utente</label>
+        <select class="form-select" name="tipo" id="tipoUtente">
+            <option selected disabled value="">Scegli un' opzione</option>
+            <option value="Creatore">Creatore</option>
+            <option value="Ascoltatore">Ascoltatore</option>
+
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Iscriviti</button>
+</form>
+
+{% endblock %}

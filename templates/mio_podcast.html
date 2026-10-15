@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block seguiti %}
+{% endblock %}
+
+{% block contenuto %}
+<div class="categoria_serie">
+    <a class="icona_cerchio" href="{{ url_for('route_form_crea_serie') }}">{{ render_icon("plus-circle-dotted") }}</a>
+    <div class="categoria2">
+        {% for serie in lista_serie %}
+        <article class="figure">
+            <a href="{{ url_for('route_mostra_serie', id=serie.ID) }}"><img class="album"
+                    src="{{ url_for('route_immagine_serie', id=serie.ID) }}"></a>
+            <h4><a class="titolo_tessere" href="{{ url_for('route_mostra_serie', id=serie.ID) }}">{{ serie.TITOLO
+                    }}</a>
+            </h4>
+            <h4><a class="categoria_tessere" href="{{ url_for('route_mostra_serie', id=serie.ID) }}">{{
+                    serie.CATEGORIA
+                    }}</a>
+            </h4>
+
+            <div class="profilo">
+                <a href=""><img class="img_utente_tessere"
+                        src="{{ url_for('route_immagine_utente', id=current_user.id) }}"></a>
+                <h4><a class="nome_tessere">{{ current_user.nome }}</a></h4>
+            </div>
+
+        </article>
+        {% endfor %}
+    </div>
+
+
+</div>
+{% endblock %}

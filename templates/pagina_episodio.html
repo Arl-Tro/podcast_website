@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block seguiti %}
+{% endblock %}
+
+{% block contenuto %}
+<div class="categoria_visualizza_episodio">
+
+    <div class="presentazione_episodio">
+        <img class="img_visualizza_episodio" src="{{ url_for('route_immagine_serie', id=episodio.ID_SERIE) }}">
+        <div class="info_episodio">
+            <p class="titolo_episodio">{{ episodio.TITOLO }}</p>
+            <p class="data_episodio">{{ episodio.DATA_EPISODIO }}</p>
+            {% if current_user.is_authenticated %}
+            <audio controls src="{{ url_for('route_traccia_audio', id=episodio.ID)}}"></audio>
+            {% endif %}
+            <p class="data_episodio">Descrizione</p>
+
+            <p class="descrizione_episodio">{{ episodio.DESCRIZIONE }}</p>
+
+        </div>
+    </div>
+
+    {% if current_user.is_authenticated and current_user.id == serie["ID_AUTORE"] %}
+    <div class="d-flex justify-content-around">
+        <a class="icona_cerchio" href="{{ url_for('route_form_modifica_episodio', id=episodio.ID) }}">
+            {{ render_icon("pencil-square") }}
+        </a>
+        <a class="icona_cerchio" href="{{ url_for('route_elimina_episodio', id=episodio.ID) }}">
+            {{ render_icon("trash3-fill") }}
+        </a>
+    </div>
+    {% endif %}
+
+
+    <div class="lista_commenti_episodio">
+
+        <p class="titolo_commenti_episodi">Commenti</p>
+
+        {% if current_user.is_authenticated %}
+        <form action="{{ url_for('route_create_comment', id=episodio.ID) }}" method="POST">
+            <textarea class="form-control" name="commento"></textarea>
+            <button class="btn btn-primary" type="submit">Invia</button>
+        </form>
+        {% endif %}
+
+        {% for commento in commenti %}
+        <div class="utenti_date_commenti">
+            <a class="utente_commento">{{
+                autori[commento.ID].NOME }}</a>
+            <p class="data_commento">{{ commento.DATA_COMMENTO}}</p>
+            {% if current_user.is_authenticated and commento["ID_AUTORE"] == current_user.id %}
+            <a href="{{ url_for('route_form_modifica_commento', id=commento.ID) }}">Modifica</a>
+            <form action="{{ url_for('route_remove_comment', id=episodio.ID) }}" method="POST">
+                <input type="hidden" value="{{ commento.ID }}" name="id_commento">
+                <button class="btn btn-danger">Rimuovi</button>
+            </form>
+            {% endif %}
+        </div>
+
+
+        <p class="commenti_episodi">{{ commento.COMMENTO }}</p>
+
+
+        {% endfor %}
+
+
+    </div>
+    {% endblock %}

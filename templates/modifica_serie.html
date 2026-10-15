@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block seguiti %}
+{% endblock %}
+
+{% block contenuto %}
+<form action="{{url_for('route_modifica_serie', id=serie.ID)}}" method="POST" class="needs-validation"
+    enctype="multipart/form-data" novalidate>
+    <div class="mb-3">
+        <label for="nomeUtente" class="form-label">Titolo</label>
+        <input type="text" class="form-control" id="nomeUtente" name="titolo" value="{{ serie.TITOLO }}" required
+            minlength="1" maxlength="100">
+    </div>
+
+    <div class="mb-3">
+        <label for="mailUtente" class="form-label">Categoria</label>
+        <input type="text" class="form-control" id="mailUtente" name="categoria" value="{{ serie.CATEGORIA }}" required
+            minlength="1" maxlength="100">
+    </div>
+
+    <div class="mb-3">
+        <label for="descrizione" class="form-label">Descrizione</label>
+        <textarea class="form-control" id="descrizione" name="descrizione_serie" required minlength="1"
+            maxlength="1000">{{ serie.DESCRIZIONE }}</textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="immagineUtente" class="form-label">Immagine</label>
+        <input type="file" class="form-control" id="immagineUtente" name="immagine" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Modifica</button>
+</form>
+
+{% endblock %}

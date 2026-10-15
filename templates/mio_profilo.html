@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block seguiti %}
+{% endblock %}
+
+{% block contenuto %}
+<div class="categoria_mio_profilo">
+    <img class="img_mio_profilo" src="{{ url_for('route_immagine_utente', id=utente.ID) }}">
+    <div class="info_profilo">
+
+        <p class="nome_profilo">{{ utente.NOME }}</p>
+        <p class="mail_profilo">{{ utente.MAIL }}</p>
+        <p class="categoria_profilo">{{ utente.TIPO }}</p>
+
+    </div>
+
+
+
+</div>
+{% endblock %}

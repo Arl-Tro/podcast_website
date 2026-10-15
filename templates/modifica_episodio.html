@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block seguiti %}
+{% endblock %}
+
+{% block contenuto %}
+<form action="{{url_for('route_modifica_episodio', episodio_id=episodio.ID)}}" method="POST" class="needs-validation"
+    enctype="multipart/form-data" novalidate>
+    <div class="mb-3">
+        <label for="nomeUtente" class="form-label">Titolo</label>
+        <input type="text" class="form-control" id="nomeUtente" name="titolo" value="{{episodio.TITOLO}}" required
+            minlength="1" maxlength="100">
+    </div>
+
+    <div class="mb-3">
+        <label for="mailUtente" class="form-label">Data</label>
+        <input type="date" class="form-control" id="mailUtente" name="data" value="{{ episodio.DATA_EPISODIO }}"
+            required>
+    </div>
+
+    <div class="mb-3">
+        <label for="descrizione" class="form-label">Descrizione</label>
+        <textarea class="form-control" id="descrizione" name="descrizione_episodio" required minlength="1"
+            maxlength="1000">{{ episodio.DESCRIZIONE }}</textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="immagineUtente" class="form-label">Traccia</label>
+        <input type="file" class="form-control" id="immagineUtente" name="traccia" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Modifica</button>
+</form>
+
+{% endblock %}

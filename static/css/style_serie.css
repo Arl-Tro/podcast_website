@@ -1,0 +1,163 @@
+.categoria_visualizza_serie {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.categoria_visualizza_serie .presentazione_serie {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.categoria_visualizza_serie .presentazione_serie .img_visualizza_serie {
+    padding: 2rem;
+    height: 500px;
+    width: 500px;
+}
+
+.categoria_visualizza_serie .presentazione_serie .info_serie {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.categoria_visualizza_serie .presentazione_serie .info_serie .titolo_segui {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 2rem;
+}
+
+.categoria_visualizza_serie .presentazione_serie .info_serie .titolo_segui .titolo_serie {
+    display: block;
+    width: 30rem;
+    padding-left: 1rem;
+    font-size: 32px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.categoria_visualizza_serie .presentazione_serie .info_serie .titolo_segui .segui_serie {
+    align-self: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 3px;
+    padding-bottom: 1.7rem;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+    background-color: rgb(84, 124, 223);
+    border-radius: 30px;
+    height: 28px;
+
+}
+
+.categoria_visualizza_serie .presentazione_serie .info_serie .categoria_serie {
+    padding-left: 1rem;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+}
+
+.categoria_visualizza_serie .presentazione_serie .info_serie .nome_creatore_serie {
+    padding-left: 1rem;
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.categoria_visualizza_serie .presentazione_serie .info_serie .descrizione_serie {
+    width: 47rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.627);
+    border-radius: 20px;
+
+}
+
+
+
+.categoria_visualizza_serie .icona_cerchio {
+    padding-bottom: 1rem;
+    width: 100%;
+    background-color: #0b1320;
+    text-align: center;
+    font-size: 2rem;
+    color: #77787c;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+.categoria_visualizza_serie .icona_cerchio:hover {
+    color: rgb(135, 202, 241);
+}
+
+
+
+
+
+
+.categoria_visualizza_serie .lista_episodi_serie {
+    display: flex;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+
+.categoria_visualizza_serie .lista_episodi_serie .titolo_lista_episodi_serie {
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+
+}
+
+.categoria_visualizza_serie .lista_episodi_serie .episodio_serie {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 1rem;
+    background-color: rgba(84, 124, 223, 0.377);
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    align-items: center;
+
+}
+
+.categoria_visualizza_serie .lista_episodi_serie .episodio_serie:hover {
+    background-color: rgba(84, 124, 223, 0.651);
+}
+
+
+.categoria_visualizza_serie .lista_episodi_serie .episodio_serie .scritte_lista_episodio {
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+
+.categoria_visualizza_serie .lista_episodi_serie .episodio_serie .player_episodio_serie {
+    font-size: 25px;
+    color: #77787c;
+    cursor: pointer;
+    transition: .3s linear;
+
+}
+
+.categoria_visualizza_serie .lista_episodi_serie .episodio_serie .player_episodio_serie:hover {
+    color: #fff;
+}

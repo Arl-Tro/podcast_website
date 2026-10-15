@@ -1,0 +1,23 @@
+.categoria_serie {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+.categoria_serie .icona_cerchio {
+    position: sticky;
+    top: 64px;
+    padding-bottom: 1rem;
+    width: 100%;
+    background-color: #0b1320;
+    text-align: center;
+    font-size: 4rem;
+    color: #77787c;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+.categoria_serie .icona_cerchio:hover {
+    color: rgb(135, 202, 241);
+}

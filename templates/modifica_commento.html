@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block seguiti %}
+{% endblock %}
+
+{% block contenuto %}
+<form action="{{url_for('route_modifica_commento', id=commento.ID)}}" method="POST" class="needs-validation"
+    enctype="multipart/form-data" novalidate>
+    <div class="mb-3">
+        <label for="descrizione" class="form-label">Commento</label>
+        <textarea class="form-control" id="descrizione" name="commento" required minlength="1"
+            maxlength="1000">{{ commento.COMMENTO }}</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Modifica</button>
+</form>
+
+{% endblock %}

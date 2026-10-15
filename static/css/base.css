@@ -1,0 +1,17 @@
+/* Stili Comuni */
+label {
+    color: #FFF;
+}
+
+.titolo {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.titolo:hover {
+    color: rgb(135, 202, 241);
+}
+
+header {
+    z-index: 69420;
+}

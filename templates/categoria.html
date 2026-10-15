@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block contenuto %}
+<div class="categoria2">
+    {% for serie in lista_serie %}
+    <article class="figure">
+        <a href="{{ url_for('route_mostra_serie', id=serie.ID) }}"><img class="album"
+                src="{{ url_for('route_immagine_serie', id=serie.ID) }}"></a>
+        <h4><a class="titolo_tessere" href="{{ url_for('route_mostra_serie', id=serie.ID) }}">{{ serie.TITOLO }}</a>
+        </h4>
+        <h4><a class="categoria_tessere" href="{{ url_for('route_mostra_serie', id=serie.ID) }}">{{ serie.CATEGORIA
+                }}</a>
+        </h4>
+
+        <div class="profilo">
+            <a href="{{ url_for('route_creatore', id=utenti[serie.ID].ID) }}"><img class="img_utente_tessere"
+                    src="{{ url_for('route_immagine_utente', id=utenti[serie.ID].ID) }}"></a>
+            <h4><a class="nome_tessere" href="">{{ utenti[serie.ID].NOME }}</a></h4>
+        </div>
+
+    </article>
+    {% endfor %}
+</div>
+{% endblock %}

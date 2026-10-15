@@ -1,0 +1,15 @@
+CONSEGNE PER IL SITO
+
+1.Pensato per  schermo 1920 X 1080
+
+2. Utenti
+
+UTENTE:	mariangela@gmail.com		PASSWORD: 123456   TIPO:creatore
+UTENTE:	flavio@gmail.com		PASSWORD: 123456   TIPO:creatore
+UTENTE:	jason@gmail.com			PASSWORD: 123456   TIPO:ascoltatore
+UTENTE:	prova2@gmail.com		PASSWORD: 123456   TIPO:creatore
+
+3.Comandi per far avviare il sito
+
+pip install -r requirements.txt
+flask --debug run

@@ -1,0 +1,39 @@
+.categoria_mio_profilo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.categoria_mio_profilo .img_mio_profilo {
+    padding: 2rem;
+    height: 500px;
+    width: 500px;
+}
+
+.categoria_mio_profilo .info_profilo {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.categoria_mio_profilo .info_profilo .nome_profilo {
+    padding-left: 2rem;
+    padding-top: 2rem;
+    font-size: 32px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+}
+
+.categoria_mio_profilo .info_profilo .mail_profilo {
+    padding-left: 2rem;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+}
+
+.categoria_mio_profilo .info_profilo .categoria_profilo {
+    padding-left: 2rem;
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(162, 162, 162);
+}

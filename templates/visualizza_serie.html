@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block seguiti %}
+{% endblock %}
+
+{% block head %}
+<script src="{{ url_for('static', filename='ricerca.js') }}" defer></script>
+{% endblock%}
+
+
+{% block contenuto %}
+<div class="categoria_visualizza_serie">
+    <div class="presentazione_serie">
+        <img class="img_visualizza_serie" src="{{ url_for('route_immagine_serie', id=serie.ID) }}">
+        <div class="info_serie">
+            <div class="titolo_segui">
+                <p class="titolo_serie">{{ serie.TITOLO }}</p>
+                {% if current_user.is_authenticated %}
+                {% if utente_segue_serie %}
+                <a class="segui_serie" href="{{ url_for('route_toggle_follow', id=serie.ID) }}">Unfollow</a>
+                {% else %}
+                <a class="segui_serie" href="{{ url_for('route_toggle_follow', id=serie.ID) }}">Follow</a>
+                {% endif %}
+                {% endif %}
+            </div>
+
+            <p class="categoria_serie">{{ serie.CATEGORIA }}</p>
+            <a class="nome_creatore_serie" href="{{ url_for('route_creatore', id=utente.ID) }}">{{ utente.NOME }}</a>
+            <p class="nome_creatore_serie">Descrizione</p>
+
+            <p class="descrizione_serie">{{ serie.Descrizione }}</p>
+
+        </div>
+    </div>
+
+    {% if current_user.is_authenticated and current_user.id == serie["ID_AUTORE"] %}
+    <div class="d-flex justify-content-around">
+        <a class="icona_cerchio" href="{{ url_for('route_form_crea_episodio', id=serie.ID) }}">
+            {{ render_icon("plus-circle-dotted") }}
+        </a>
+        <a class="icona_cerchio" href="{{ url_for('route_form_modifica_serie', id=serie.ID) }}">
+            {{ render_icon("pencil-square") }}
+        </a>
+        <a class="icona_cerchio" href="{{ url_for('route_elimina_serie', id=serie.ID) }}">
+            {{ render_icon("trash3-fill") }}
+        </a>
+
+    </div>
+    {% endif %}
+
+    <div class="lista_episodi_serie">
+
+        <p class="titolo_lista_episodi_serie">Lista degli episodi</p>
+
+
+        <div class="search mb-4">
+            {{ render_icon("search") }}
+            <input type="text" placeholder="Cerca Episodio" id="ricerca" class="w-100">
+        </div>
+        {% for episodio in episodi %}
+        <div class="episodio_serie" data-ricerca="{{ episodio.TITOLO }} {{ episodio.DESCRIZIONE }}">
+            <a class="player_episodio_serie" href="{{ url_for('route_mostra_episodio', id=episodio.ID) }}">{{
+                render_icon("caret-right-fill") }}</a>
+
+            <a class="scritte_lista_episodio" href="{{ url_for('route_mostra_episodio', id=episodio.ID) }}">{{
+                episodio.TITOLO
+                }}</a>
+
+            <p class="scritte_lista_episodio">{{ episodio.DATA_EPISODIO }}</p>
+
+
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

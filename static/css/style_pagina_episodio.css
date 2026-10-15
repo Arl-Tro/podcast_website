@@ -1,0 +1,151 @@
+.categoria_visualizza_episodio {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.categoria_visualizza_episodio .presentazione_episodio {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.categoria_visualizza_episodio .presentazione_episodio .img_visualizza_episodio {
+    padding: 2rem;
+    height: 500px;
+    width: 500px;
+}
+
+.categoria_visualizza_episodio .presentazione_episodio .info_episodio {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+}
+
+
+.categoria_visualizza_episodio .presentazione_episodio .info_episodio .titolo_episodio {
+    display: block;
+    width: 30rem;
+    padding-left: 1rem;
+    font-size: 32px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.categoria_visualizza_episodio .presentazione_episodio .info_episodio .data_episodio {
+    padding-left: 1rem;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+}
+
+.categoria_visualizza_episodio .presentazione_episodio .info_episodio .episodio {
+    padding-left: 1rem;
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(255, 255, 255);
+}
+
+.categoria_visualizza_episodio .presentazione_episodio .info_episodio .descrizione_episodio {
+    width: 47rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.627);
+    border-radius: 20px;
+
+}
+
+
+
+
+.icona_cerchio {
+    position: sticky;
+    top: 64px;
+    padding-bottom: 1rem;
+    width: 100%;
+    background-color: #0b1320;
+    text-align: center;
+    font-size: 2rem;
+    color: #77787c;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+.icona_cerchio:hover {
+    color: rgb(135, 202, 241);
+}
+
+
+
+
+
+
+.categoria_visualizza_episodio .lista_commenti_episodio {
+    display: flex;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+
+.categoria_visualizza_episodio .lista_commenti_episodio .titolo_commenti_episodi {
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+
+}
+
+.categoria_visualizza_episodio .lista_commenti_episodio .utenti_date_commenti {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+}
+
+.categoria_visualizza_episodio .lista_commenti_episodio .utenti_date_commenti .utente_commento {
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+
+
+.categoria_visualizza_episodio .lista_commenti_episodio .utenti_date_commenti .data_commento {
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(195, 195, 195);
+
+}
+
+
+
+
+
+
+.categoria_visualizza_episodio .lista_commenti_episodio .commenti_episodi {
+    padding: 1rem;
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.627);
+    border-radius: 20px;
+    margin-bottom: 1rem;
+
+
+}

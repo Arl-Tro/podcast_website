@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block contenuto %}
+<form action="{{url_for('route_login')}}" method="POST" class="needs-validation" enctype="multipart/form-data"
+    novalidate>
+
+    <div class="mb-3">
+        <label for="mailUtente" class="form-label">Email</label>
+        <input type="email" class="form-control" id="mailUtente" name="mail" required minlength="1" maxlength="100">
+    </div>
+
+    <div class="mb-3">
+        <label for="passwordUtente" class="form-label">Password</label>
+        <input type="password" class="form-control" id="passwordUtente" name="password" required minlength="1"
+            maxlength="100">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Accedi</button>
+</form>
+
+{% endblock %}
